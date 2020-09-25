@@ -7,155 +7,155 @@ sidebar: auto
 ## Block.Store
 
 ```js
-import Block from '@pp/block';
+import Block from '@ppfed/block'
 
-const apiStore = new Block.Store({ ...options });
+const apiStore = new Block.Store({ ...options })
 ```
 
 ## Block.Store 构造器选项
 
 ### modules
 
--   类型: `Object`
+- 类型: `Object`
 
-    包含了子模块的对象，会被合并到 store，大概长这样：
+  包含了子模块的对象，会被合并到 store，大概长这样：
 
-    ```js
-    {
-      key: class any,
-      ...
-    }
-    ```
+  ```js
+  {
+    key: class any,
+    ...
+  }
+  ```
 
-    每个模块会根据是否包含 baseURL 和 interceptors 来创建新 block 实例，默认使用全局配置 config 与 interceptors。
+  每个模块会根据是否包含 baseURL 和 interceptors 来创建新 block 实例，默认使用全局配置 config 与 interceptors。
 
-    [详细介绍](../guide/modules.md)
+  [详细介绍](../guide/modules.md)
 
 ### config
 
--   类型: `Object`
+- 类型: `Object`
 
-    全局请求实例的配置项。
+  全局请求实例的配置项。
 
-    ```js
-    {
-      // 基础调用路径，如果`url`不是绝对地址，那么将会加在其前面。
-      baseURL?: string
-      // 定义请求的时间，单位是毫秒。
-      // 如果请求的时间超过这个设定时间，请求将会停止。
-      timeout?: number
-      // 表明是否使用跨网站访问协议证书
-      withCredentials?: boolean
-    }
-    ```
+  ```js
+  {
+    // 基础调用路径，如果`url`不是绝对地址，那么将会加在其前面。
+    baseURL?: string
+    // 定义请求的时间，单位是毫秒。
+    // 如果请求的时间超过这个设定时间，请求将会停止。
+    timeout?: number
+    // 表明是否使用跨网站访问协议证书
+    withCredentials?: boolean
+  }
+  ```
 
-    [详细介绍](/api/#config-请求配置项)
+  [详细介绍](/api/#config-请求配置项)
 
 ### interceptors
 
--   类型: `Object`
+- 类型: `Object`
 
-    请求拦截器，你可以在请求数据发送/返回前对数据进行拦截。
+  请求拦截器，你可以在请求数据发送/返回前对数据进行拦截。
 
-    <!-- [详细介绍](../guide/interceptors.md) -->
+  <!-- [详细介绍](../guide/interceptors.md) -->
 
 ## Block.Store 实例属性
 
 ### api
 
--   类型: `Object`
+- 类型: `Object`
 
-    根据**模块拆分**的 api 方法集合。
+  根据**模块拆分**的 api 方法集合。
 
 ### apiNs
 
--   类型: `Object`
+- 类型: `Object`
 
-    根据**命名空间拆分**的 api 方法集合。
+  根据**命名空间拆分**的 api 方法集合。
 
 ## Block.Store 实例方法
 
 ### dispatch
 
--   `dispatch(type: string, payload: any = {})`
+- `dispatch(type: string, payload: any = {})`
 
-    调用 单个 api。`type`的格式为`命名空间/api名称`,`payload` 里包含`params`、`data`、`config`。它允许调用任意模块的 api。返回请求 Promise。
+  调用 单个 api。`type`的格式为`命名空间/api名称`,`payload` 里包含`params`、`data`、`config`。它允许调用任意模块的 api。返回请求 Promise。
 
 ### all
 
--   `all(actions: Array<{ type: string; payload?: any }>)`
+- `all(actions: Array<{ type: string; payload?: any }>)`
 
-    调用 多个 api。与**dispatch**类似，它接受多个 api 项，并返回数组正序的 promise 数组。
+  调用 多个 api。与**dispatch**类似，它接受多个 api 项，并返回数组正序的 promise 数组。
 
 ## 装饰器
 
 ### @base
 
--   `base(baseURL: string)`
+- `base(baseURL: string)`
 
-    为类创建 baseURL 属性，拥有此属性会为[modules](../guide/modules.md)创建新的 block 实例。
+  为类创建 baseURL 属性，拥有此属性会为[modules](../guide/modules.md)创建新的 block 实例。
 
 ### @get
 
--   `get(url: string, config?: any)`
+- `get(url: string, config?: any)`
 
-    GET 请求装饰器。
+  GET 请求装饰器。
 
-    第一个参数是请求的 url。
+  第一个参数是请求的 url。
 
-    第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
+  第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
 
 ### @post
 
--   `post(url: string, config?: any)`
+- `post(url: string, config?: any)`
 
-    POST 请求装饰器。
+  POST 请求装饰器。
 
-    第一个参数是请求的 url。
+  第一个参数是请求的 url。
 
-    第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
+  第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
 
 ### @put
 
--   `put(url: string, config?: any)`
+- `put(url: string, config?: any)`
 
-    PUT 请求装饰器。
+  PUT 请求装饰器。
 
-    第一个参数是请求的 url。
+  第一个参数是请求的 url。
 
-    第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
+  第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
 
 ### @del
 
--   `del(url: string, config?: any)`
+- `del(url: string, config?: any)`
 
-    DELETE 请求装饰器。
+  DELETE 请求装饰器。
 
-    第一个参数是请求的 url。
+  第一个参数是请求的 url。
 
-    第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
+  第二个参数是可选的，可以是请求配置项。[详细介绍](/api/#config-请求配置项)
 
 ### @req
 
--   `req(status: InterceptorStatus)`
+- `req(status: InterceptorStatus)`
 
-    请求发送前的拦截器，拦截 request。
+  请求发送前的拦截器，拦截 request。
 
-    status 有两个枚举值：
+  status 有两个枚举值：
 
-    -   `success` 在请求发送之前做一些事
-    -   `error` 当出现请求错误是做一些事
+  - `success` 在请求发送之前做一些事
+  - `error` 当出现请求错误是做一些事
 
 ### @res
 
--   `res(status: InterceptorStatus)`
+- `res(status: InterceptorStatus)`
 
-    请求接收时的拦截器，拦截 response。
+  请求接收时的拦截器，拦截 response。
 
-    status 有两个枚举值：
+  status 有两个枚举值：
 
-    -   `success` 对返回的数据进行一些处理
-    -   `error` 对返回的错误进行一些处理
+  - `success` 对返回的数据进行一些处理
+  - `error` 对返回的错误进行一些处理
 
 ## Config 请求配置项
 

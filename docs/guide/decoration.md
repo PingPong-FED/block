@@ -14,7 +14,7 @@
 使用方式：
 
 ```js
-import { get, post, put, del } from '@pp/block'
+import { get, post, put, del } from '@ppfed/block'
 
 class User {
     @get('/api/getUserInfo')
@@ -36,7 +36,7 @@ class User {
 Block 提供模块级的基础调用路径装饰器，使得模块能够承载不同域名路径的 API。
 
 ```js
-import { get } from '@pp/block'
+import { get } from '@ppfed/block'
 
 @base('http://www.pingpongx.com')
 class User {
@@ -56,7 +56,7 @@ class User {
 装饰器的第一个参数为状态，`success`与`error`分别代表**拦截处理**与**错误处理**。
 
 ```js
-import { base, get, post, res, req } from '@pp/block'
+import { base, get, post, res, req } from '@ppfed/block'
 
 @base('http://www.groad.top:3000/mock/13')
 class User {

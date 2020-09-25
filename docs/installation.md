@@ -3,27 +3,27 @@
 ### NPM
 
 ```bash
-npm install @pp/block --save
+npm install @ppfed/block --save
 ```
 
 ### Yarn
 
 ```bash
-yarn add @pp/block
+yarn add @ppfed/block
 ```
 
 在一个模块化的打包系统中，您必须显式地通过 `new Block.Store()` 来安装 Block：
 
 ```js
-import Block from 'block';
+import Block from 'block'
 // 引入自定义的Block Module
-import user from 'user';
+import user from 'user'
 
 new Block.Store({
-    modules: {
-        user
-    }
-});
+  modules: {
+    user,
+  },
+})
 ```
 
 ### Promise
@@ -48,5 +48,5 @@ yarn add es6-promise # Yarn
 或者更进一步，将下列代码添加到你使用 Block 之前的一个地方：
 
 ```js
-import 'es6-promise/auto';
+import 'es6-promise/auto'
 ```

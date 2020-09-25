@@ -9,7 +9,7 @@
 对于模块，必须以一个类的方式导出，并至少包含一个 API 装饰器。
 
 ```js
-import { get } from '@pp/block'
+import { get } from '@ppfed/block'
 
 class User {
     @get('/api/getUserInfo')
@@ -26,7 +26,7 @@ export default User
 包含@base：
 
 ```js
-import { get } from '@pp/block'
+import { get } from '@ppfed/block'
 
 @base('http://www.pingpongx.com')
 class User {
@@ -40,7 +40,7 @@ export default User
 包含拦截器：
 
 ```js
-import { get } from '@pp/block'
+import { get } from '@ppfed/block'
 
 @base('http://www.pingpongx.com')
 class User {
@@ -62,7 +62,7 @@ export default User
 
 ```js
 // module
-import { get } from '@pp/block'
+import { get } from '@ppfed/block'
 
 // User 类中所有 API 的命名空间为 user。
 @base('http://www.pingpongx.com')
@@ -77,7 +77,7 @@ class User {
 export default User
 
 // api入口
-import Block from '@pp/block'
+import Block from '@ppfed/block'
 import user from './user'
 
 export default new Block.Store({

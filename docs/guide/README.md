@@ -8,23 +8,23 @@
 
 ```js
 // 如果在模块化构建系统中，请确保在开头调用了此文件
-import Block from '@pp/block'
+import Block from '@ppfed/block'
 
 const api = {
-  getUserInfo: ['get', '/api/getUserInfo']
+  getUserInfo: ['get', '/api/getUserInfo'],
 }
 
 const config = {
-  baseURL: 'http://api.pingpongx.org'
+  baseURL: 'http://api.pingpongx.org',
 }
 
 const apiStore = new Block.Store({
   modules: {
     user: {
       api,
-      config
-    }
-  }
+      config,
+    },
+  },
 })
 ```
 
@@ -38,7 +38,7 @@ const action = async () => {
 
   // 方式二
   const data2 = await apiStore.all([
-    { type: 'user/getUserInfo' }
+    { type: 'user/getUserInfo' },
     // ...
   ])
   console.log(data2) // -> [{name:'张三'}]
