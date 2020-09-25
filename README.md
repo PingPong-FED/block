@@ -7,15 +7,15 @@ Block 是一个专为 Axios.js 开发的**模块装饰器管理模式**。它采
 让我们从一个简单的 Axios 调用方式开始：
 
 ```js
-import axios from "axios";
+import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: "https://www.pingpongx.com/"
-});
+  baseURL: 'https://www.pingpongx.com/',
+})
 
 export const getUserInfo = (params, data) => {
-  return instance.get(`/api/getUserInfo`, { params, data });
-};
+  return instance.get(`/api/getUserInfo`, { params, data })
+}
 ```
 
 这个调用方式包含以下几个部分：
@@ -43,7 +43,7 @@ export const getUserInfo = (params, data) => {
 那我们来看看 Block 是**如何定义 API 模块**的：
 
 ```js
-import { base, get } from '@pp/block'
+import { base, get } from '@ppfed/block'
 
 @base('https://www.pingpongx.com/')
 class User {
