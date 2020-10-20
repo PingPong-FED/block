@@ -57,3 +57,7 @@ export default User
 简单来说，Block 就是使用**类+装饰器**来统一 API 层的写法风格。
 
 用增加 url-template、qs 等扩展的方式，使得开发者能高效地写出更简洁的代码。
+
+## LICENSE
+
+[MIT](https://github.com/PingPong-FED/block/blob/master/LICENSE)
